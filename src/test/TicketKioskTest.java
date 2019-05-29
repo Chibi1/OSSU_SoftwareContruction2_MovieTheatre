@@ -1,5 +1,7 @@
 package test;
 
+import exceptions.ShowingFullException;
+import exceptions.UnderAgeException;
 import model.Movie;
 import model.MovieGoer;
 import model.Ticket;
@@ -47,7 +49,13 @@ public class TicketKioskTest {
 
     @Test
     public void testsellTicket() {
-        assertTrue(tk.sellTicket(mg1, m1));
+        try {
+            assertTrue(tk.sellTicket(mg1, m1));
+        } catch (ShowingFullException e) {
+            //
+        } catch (UnderAgeException e) {
+            //
+        }
         assertEquals(mg1.getTicket(), t1);
     }
 

@@ -1,4 +1,7 @@
 package model;
+import exceptions.ShowingFullException;
+import exceptions.UnderAgeException;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,7 +34,7 @@ public class TicketKiosk {
     }
 
     //EFFECTS: calls MovieGoer's buyTicket method, passing m as a parameter.
-    public boolean sellTicket(MovieGoer mg, Movie m) {
+    public boolean sellTicket(MovieGoer mg, Movie m) throws ShowingFullException, UnderAgeException {
         mg.buyTicket(m);
         return true;
     }

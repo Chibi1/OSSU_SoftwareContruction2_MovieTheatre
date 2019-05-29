@@ -1,5 +1,7 @@
 package test;
 
+import exceptions.ShowingFullException;
+import exceptions.UnderAgeException;
 import model.Movie;
 import model.MovieGoer;
 import model.Ticket;
@@ -41,23 +43,59 @@ public class MovieGoerTest {
     @Test
     public void testBuyTicketNoUnderAgeException() {
        // TODO: implement this test method where you do NOT expect the buyTicket() method to throw UnderAgeException
+        try {
+            System.out.println("buying legitimate ticket");
+            tk.sellTicket(mg1, m1);
+        } catch (ShowingFullException e) {
+            //
+        } catch (UnderAgeException e) {
+            fail("Caught non existent under age exception");
+            System.out.println(e);
+        }
     }
 
     @Test
     public void testBuyTicketUnderAgeException() {
         // TODO: implement this test method where you DO expect the buyTicket() method to throw UnderAgeException
+        try {
+            tk.sellTicket(mg2, m1);
+            fail("Did not catch under age exception");
+        } catch (ShowingFullException e) {
+            //
+        } catch (UnderAgeException e) {
+            System.out.println(e);
+        }
     }
 
 
     @Test
     public void testBuyTicketNoShowingFullException() {
         // TODO: implement this test method where you do NOT expect the buyTicket() method to throw ShowingFullException
+        try {
+            m1.setCurrentSeating(45);
+            System.out.println("selling ticket when seating available");
+            tk.sellTicket(mg1, m1);
+        } catch (UnderAgeException e) {
+            //
+        } catch (ShowingFullException e) {
+            System.out.println(e);
+            fail("Caught non existent showing full exception");
+        }
     }
 
     @Test
     public void testBuyTicketShowingFullException() {
         // TODO: implement this test method where you DO expect the buyTicket() method to throw ShowingFullException
-
+        try {
+            m1.setCurrentSeating(50);
+            System.out.println("selling ticket when no seating available");
+            tk.sellTicket(mg1, m1);
+            fail("missed showing full exception");
+        } catch (UnderAgeException e) {
+            //
+        } catch (ShowingFullException e) {
+            System.out.println(e);
+        }
     }
 
 

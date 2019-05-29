@@ -20,6 +20,8 @@ public class Movie {
     public int getCurrentSeating() { return this.currentSeating; }
     public int getMaxSeating() { return this.maxSeating; }
 
+    public void setCurrentSeating(int currentSeating) { this.currentSeating = currentSeating; }
+
     //EFFECTS: returns true if the movie is at full capacity, else return false
     public boolean isFull() {
         return currentSeating >= maxSeating;

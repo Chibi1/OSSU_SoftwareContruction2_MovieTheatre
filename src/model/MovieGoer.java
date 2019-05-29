@@ -1,5 +1,8 @@
 package model;
 
+import exceptions.ShowingFullException;
+import exceptions.UnderAgeException;
+
 public class MovieGoer {
 
     private String name;
@@ -25,9 +28,13 @@ public class MovieGoer {
     // MODIFIES: this
     // EFFECTS: a new ticket associated with the given movie is created, and
     //           becomes this MovieGoer's ticket
-    public void buyTicket(Movie m) {
+    public void buyTicket(Movie m) throws ShowingFullException, UnderAgeException {
+        if (m.isFull()) {
+            throw new ShowingFullException();
+        } else if (age < m.getAgeRestriction()) {
+            throw new UnderAgeException();
+        }
         ticket = new Ticket(m);
-
     }
 
 
