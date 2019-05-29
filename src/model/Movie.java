@@ -15,32 +15,19 @@ public class Movie {
     }
 
     //getters
-    public String getTitle() {
-        // TODO: complete the implementation of this method
-        return null;
-    }
-    public int getAgeRestriction() {
-        // TODO: complete the implementation of this method
-        return 0;
-    }
-    public int getCurrentSeating() {
-        // TODO: complete the implementation of this method
-        return 0;
-    }
-    public int getMaxSeating() {
-        // TODO: complete the implementation of this method
-        return 0;
-    }
+    public String getTitle() { return this.title; }
+    public int getAgeRestriction() { return this.ageRestriction; }
+    public int getCurrentSeating() { return this.currentSeating; }
+    public int getMaxSeating() { return this.maxSeating; }
 
     //EFFECTS: returns true if the movie is at full capacity, else return false
     public boolean isFull() {
-        // TODO: complete the implementation of this method
-        return false;
+        return currentSeating >= maxSeating;
     }
 
     //EFFECTS: increment the currentSeating field by 1
     public void addViewer() {
-        // TODO: complete the implementation of this method
+        currentSeating++;
     }
 
 

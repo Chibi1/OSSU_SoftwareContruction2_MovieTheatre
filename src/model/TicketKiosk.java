@@ -14,25 +14,25 @@ public class TicketKiosk {
     }
 
     // getters
-    public String getName() {
-        // TODO: complete the implementation of this method
-        return null;
-    }
-    public List<Movie> getMovies() {
-        // TODO: complete the implementation of this method
-        return null;
-    }
+    public String getName() { return this.name; }
+    public List<Movie> getMovies() { return this.movies; }
 
     //EFFECTS:  adds the movie to movies, unless it is already in movies.
     //          if add is successful return true, otherwise return false.
     public boolean addMovie(Movie m) {
-        // TODO: complete the implementation of this method
-        return false;
+        boolean movieAdded = false;
+        int moviesLength = movies.size();
+        movies.add(m);
+        if (movies.size() == moviesLength + 1) {
+            movieAdded = true;
+        }
+        assert(movies.size() > moviesLength);
+        return movieAdded;
     }
 
     //EFFECTS: calls MovieGoer's buyTicket method, passing m as a parameter.
     public boolean sellTicket(MovieGoer mg, Movie m) {
-        // TODO: complete the implementation of this method
+        mg.buyTicket(m);
         return true;
     }
 

@@ -9,10 +9,7 @@ public class Ticket {
     }
 
     // getters
-    public Movie getMovie() {
-        // TODO: complete the implementation of this method
-        return null;
-    }
+    public Movie getMovie() { return this.movie; }
 
     // Do not touch the implementation of this method
     @Override
